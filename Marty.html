@@ -85,7 +85,7 @@
         }
 
         .countdown-container {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.10);
             padding: 3rem 2rem;
             border-radius: 20px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
@@ -1585,9 +1585,6 @@
                 audio = new Audio(CONFIG.musicUrl);
                 audio.volume = 0.5;
                 audio.loop = true;
-                audio.play();
-                isPlaying = true;
-                document.getElementById('playPauseBtn').textContent = '⏸️';
             }
         }
 

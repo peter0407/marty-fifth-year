@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Congratulations Dr. Future! 🌻</title>
+    <title>Congratulations Dr. Marty 🌻</title>
     <style>
         * {
             margin: 0;
@@ -46,24 +46,30 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.6) 0%, rgba(118, 75, 162, 0.6) 100%), url('assets/home1.jpg');
+            background-size: cover;
+            background-position: center;
             position: relative;
             overflow: hidden;
         }
 
         .floating-elements {
-            position: absolute;
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
             pointer-events: none;
+            z-index: 10;
         }
 
         .sunflower,
         .duck {
-            position: absolute;
+            position: fixed;
             font-size: 2rem;
-            opacity: 0.2;
+            opacity: 0.5;
             animation: float 6s ease-in-out infinite;
+            z-index: 10;
         }
 
         @keyframes float {
@@ -594,6 +600,127 @@
             color: #2c3e50;
         }
 
+        /* Faith & Verse Hero */
+        .verse-hero {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-position: center;
+            background-size: cover;
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            color: white;
+        }
+
+        .verse-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.6));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .verse-text {
+            max-width: 900px;
+            backdrop-filter: blur(2px);
+        }
+
+        .verse-text h3 {
+            font-size: clamp(1.6rem, 4vw, 2.2rem);
+            margin-bottom: 0.6rem;
+        }
+
+        .verse-text p.lead {
+            font-size: clamp(1rem, 2.5vw, 1.1rem);
+            opacity: 0.95;
+            margin-bottom: 1rem;
+        }
+
+        .remember-list {
+            margin-top: 0.8rem;
+            font-size: clamp(0.95rem, 2.2vw, 1rem);
+            color: rgba(255, 255, 255, 0.95);
+            line-height: 1.6;
+        }
+
+        .first-last-gallery {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .first-last-gallery .gallery-item {
+            min-width: 220px;
+            height: 180px;
+            border-radius: 10px;
+        }
+
+        /* Numbers Section */
+        .numbers {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.5s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .stat-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stat-card:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .stat-number {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            font-weight: bold;
+            margin: 1rem 0;
+            line-height: 1;
+            font-family: 'Courier New', monospace;
+        }
+
+        .stat-label {
+            font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+            opacity: 0.95;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .stat-icon {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 0.5rem;
+        }
+
         .section.surgery .card {
             border-top: 4px solid var(--surgery);
         }
@@ -789,17 +916,24 @@
 </head>
 
 <body>
+    <!-- Global floating elements (ducks & sunflowers) -->
+    <div class="floating-elements">
+        <div class="sunflower" style="top: 10%; left: 10%">🌻</div>
+        <div class="duck" style="top: 20%; right: 15%">🦆</div>
+        <div class="sunflower" style="bottom: 15%; left: 20%">🌻</div>
+        <div class="duck" style="bottom: 20%; right: 10%">🦆</div>
+        <div class="sunflower" style="top: 60%; left: 80%">🌻</div>
+        <div class="duck" style="top: 40%; left: 5%">🦆</div>
+        <div class="sunflower" style="top: 30%; right: 25%">🌻</div>
+        <div class="duck" style="top: 70%; left: 15%">🦆</div>
+        <div class="sunflower" style="bottom: 25%; right: 20%">🌻</div>
+        <div class="duck" style="bottom: 30%; left: 50%">🦆</div>
+        <div class="sunflower" style="top: 50%; right: 5%">🌻</div>
+        <div class="duck" style="top: 15%; left: 60%">🦆</div>
+    </div>
+
     <!-- Countdown Page -->
     <div id="countdown-page">
-        <div class="floating-elements">
-            <div class="sunflower" style="top: 10%; left: 10%;">🌻</div>
-            <div class="duck" style="top: 20%; right: 15%;">🦆</div>
-            <div class="sunflower" style="bottom: 15%; left: 20%;">🌻</div>
-            <div class="duck" style="bottom: 20%; right: 10%;">🦆</div>
-            <div class="sunflower" style="top: 60%; left: 80%;">🌻</div>
-            <div class="duck" style="top: 40%; left: 5%;">🦆</div>
-        </div>
-
         <div class="countdown-container">
             <h1>🩺 Almost There! 🌻</h1>
             <p>The final exam countdown...</p>
@@ -827,7 +961,7 @@
                 "The best way to predict the future is to create it."
             </p>
 
-            <button class="skip-btn" onclick="unlockSite()">
+            <button id="skipBtn" class="skip-btn" onclick="unlockSite()">
                 Preview Site (For Testing)
             </button>
         </div>
@@ -847,6 +981,8 @@
         <!-- Timeline Navigation (Desktop) -->
         <div class="timeline-nav">
             <div class="timeline-dot" data-label="Home" data-section="hero"></div>
+            <div class="timeline-dot" data-label="Faith" data-section="faith"></div>
+            <div class="timeline-dot" data-label="Numbers" data-section="numbers"></div>
             <div class="timeline-dot" data-label="Surgery" data-section="surgery"></div>
             <div class="timeline-dot" data-label="Internal" data-section="internal"></div>
             <div class="timeline-dot" data-label="Pediatrics" data-section="pediatrics"></div>
@@ -858,6 +994,8 @@
         <div class="mobile-nav">
             <div class="mobile-nav-dots">
                 <div class="mobile-nav-dot" data-section="hero"></div>
+                <div class="mobile-nav-dot" data-section="faith"></div>
+                <div class="mobile-nav-dot" data-section="numbers"></div>
                 <div class="mobile-nav-dot" data-section="surgery"></div>
                 <div class="mobile-nav-dot" data-section="internal"></div>
                 <div class="mobile-nav-dot" data-section="pediatrics"></div>
@@ -869,9 +1007,90 @@
         <!-- Hero Section -->
         <section id="hero" class="hero section" data-section="hero">
             <div class="hero-content">
-                <h1>🎉 Congratulations, Doctor! 🌻</h1>
-                <p>You did it! Four incredible rotations, countless hours, and endless dedication.</p>
+                <h1>🎉 Congratulations 🌻<br> My Dear Marty! </h1>
+                <p>You did it! Four incredible rounds, countless hours, and endless dedication.</p>
                 <p style="margin-top: 1rem;">This is your journey.</p>
+            </div>
+        </section>
+
+        <!-- Faith & Journey Section -->
+        <section id="faith" class="section" data-section="faith">
+            <div class="section-header">
+                <h2>🙏 Faith & Journey</h2>
+                <p>Remembering how it started — God went with us.</p>
+            </div>
+
+            <div class="section-content">
+                <div class="content-grid">
+                    <div class="card" style="padding:0; overflow:visible;">
+                        <div class="verse-hero"
+                            style="background-image: url('assets/bibleverse.jpg'); background-position: center top;">
+                            <div class="verse-overlay">
+                                <div class="verse-text">
+                                    <br>
+                                    <br>
+                                    <br>
+                                    <br>
+                                    <br>
+                                    <br>
+                                    <p class="lead" style="color:#a8edea">Remember how it started Toty — you were
+                                        motivated; we promised we
+                                        would take God with us in this journey.</p>
+                                    <p class="remember-list" style="color:#a8edea">We started by reading: Daniel, John,
+                                        Song of Songs, Romans,
+                                        and Proverbs.</p>
+                                    <div class="first-last-gallery" style="margin-top:1.25rem;">
+                                        <div class="gallery-item" data-type="image" data-src="assets/lastfirstday.png"
+                                            style="background-image: url('assets/lastfirstday.png'); background-size: cover; background-position: center; opacity: 0.8;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Numbers Section -->
+        <section id="numbers" class="section numbers" data-section="numbers">
+            <div class="section-header">
+                <h2>📊 By The Numbers</h2>
+                <p style="color: #a8edea;">The journey in statistics (what I could count)</p>
+            </div>
+
+            <div class="section-content">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">☕</div>
+                        <div class="stat-number" data-target="297">0</div>
+                        <div class="stat-label">Cups of Coffee</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">🍵</div>
+                        <div class="stat-number" data-target="94">0</div>
+                        <div class="stat-label">Cups of Tea</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">🟨</div>
+                        <div class="stat-number" data-target="14">0</div>
+                        <div class="stat-label">Highlighters</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">📅</div>
+                        <div class="stat-number" data-target="420">0</div>
+                        <div class="stat-label">Days This Year</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">🎯</div>
+                        <div class="stat-number" data-target="100">0</div>
+                        <div class="stat-label">Dedication %</div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -1085,9 +1304,12 @@
     <script>
         // ========== CONFIGURATION ==========
         const CONFIG = {
-            examDate: new Date('2025-01-15T09:00:00'),
-            musicUrl: '',
-            sections: ['hero', 'surgery', 'internal', 'pediatrics', 'toxicology', 'final']
+            examDate: new Date('2026-01-15T09:00:00'),
+            musicUrl: 'assets/piano.mp3',
+            // When false the preview "Skip" button is hidden and
+            // the site cannot be unlocked before `examDate`.
+            allowPreview: false,
+            sections: ['hero', 'faith', 'numbers', 'surgery', 'internal', 'pediatrics', 'toxicology', 'final']
         };
 
         // ========== STATE ==========
@@ -1120,14 +1342,56 @@
         }
 
         function unlockSite() {
-            if (!isUnlocked) {
-                isUnlocked = true;
-                document.getElementById('countdown-page').style.display = 'none';
-                document.getElementById('main-content').classList.add('unlocked');
-                setupScrollObserver();
-                setupGalleryListeners();
-                updateNavigation();
+            if (isUnlocked) return;
+
+            const now = new Date().getTime();
+            const examTime = CONFIG.examDate instanceof Date ? CONFIG.examDate.getTime() : new Date(CONFIG.examDate).getTime();
+
+            if (now < examTime && !CONFIG.allowPreview) {
+                alert(`This site is locked until ${CONFIG.examDate.toLocaleString()}`);
+                return;
             }
+
+            isUnlocked = true;
+            document.getElementById('countdown-page').style.display = 'none';
+            document.getElementById('main-content').classList.add('unlocked');
+            setupScrollObserver();
+            setupGalleryListeners();
+            updateNavigation();
+        }
+
+        // ========== ANIMATED COUNTERS ==========
+        function animateCounters() {
+            const statNumbers = document.querySelectorAll('.stat-number');
+            statNumbers.forEach(element => {
+                if (!element.hasAttribute('data-animated')) {
+                    const target = parseInt(element.dataset.target);
+                    const duration = 2500; // 2.5 seconds
+                    const startTime = Date.now();
+                    const startValue = 0;
+
+                    const animate = () => {
+                        const now = Date.now();
+                        const elapsed = now - startTime;
+                        const progress = Math.min(elapsed / duration, 1);
+
+                        // Easing function for smooth animation
+                        const easeOut = 1 - Math.pow(1 - progress, 3);
+                        const current = Math.floor(startValue + (target - startValue) * easeOut);
+
+                        element.textContent = current;
+
+                        if (progress < 1) {
+                            requestAnimationFrame(animate);
+                        } else {
+                            element.textContent = target + '+';
+                            element.setAttribute('data-animated', 'true');
+                        }
+                    };
+
+                    animate();
+                }
+            });
         }
 
         // ========== MEDIA VIEWER ==========
@@ -1249,9 +1513,24 @@
                 });
             }, observerOptions);
 
-            document.querySelectorAll('.section-header, .card, .gallery-item').forEach(el => {
+            document.querySelectorAll('.section-header, .card, .gallery-item, .stat-card').forEach(el => {
                 observer.observe(el);
             });
+
+            // Trigger counter animation when numbers section is visible
+            const numbersSection = document.getElementById('numbers');
+            if (numbersSection) {
+                const numbersObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            animateCounters();
+                            numbersObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.3 });
+
+                numbersObserver.observe(numbersSection);
+            }
 
             // Section observer for navigation
             const sectionObserver = new IntersectionObserver((entries) => {
@@ -1306,6 +1585,9 @@
                 audio = new Audio(CONFIG.musicUrl);
                 audio.volume = 0.5;
                 audio.loop = true;
+                audio.play();
+                isPlaying = true;
+                document.getElementById('playPauseBtn').textContent = '⏸️';
             }
         }
 
@@ -1331,6 +1613,12 @@
         // ========== INITIALIZATION ==========
         function init() {
             initMusic();
+
+            // Hide or show preview/skip button depending on config
+            const skipBtn = document.getElementById('skipBtn');
+            if (skipBtn) {
+                skipBtn.style.display = CONFIG.allowPreview ? 'inline-block' : 'none';
+            }
 
             updateCountdown();
             const countdownInterval = setInterval(() => {
